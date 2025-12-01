@@ -2,8 +2,8 @@ from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
 class IngredientPage(BasePage):
-    MODAL = (By.CSS_SELECTOR, ".Modal_modal__content__1QYj-")
-    CLOSE_BTN = (By.CSS_SELECTOR, ".Modal_modal__close__3-4-1")
+    MODAL = (By.XPATH, "//div[contains(@class,'Modal_modal__content')]")
+    CLOSE_BTN = (By.XPATH, "//button[contains(@class,'Modal_modal__close')]")
 
     def is_modal_open(self):
         return self.is_visible(self.MODAL)
