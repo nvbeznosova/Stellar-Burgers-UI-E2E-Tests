@@ -7,14 +7,21 @@ from webdriver_manager.firefox import GeckoDriverManager
 
 @pytest.fixture(params=["chrome", "firefox"])
 def driver(request):
-    if request.param == "chrome":
+    browser = request.param
+    if browser == "chrome":
+        options = webdriver.ChromeOptions()
+        options.add_argument("--start-maximized")
         service = ChromeService(ChromeDriverManager().install())
-        driver = webdriver.Chrome(service=service)
+        driver = webdriver.Chrome(service=service, options=options)
     else:
+        options = webdriver.FirefoxOptions()
+        options.set_preference("dom.webdriver.enabled", True)
+        options.set_preference("useAutomationExtension", False)
         service = FirefoxService(GeckoDriverManager().install())
-        driver = webdriver.Firefox(service=service)
+        driver = webdriver.Firefox(service=service, options=options)
+        driver.maximize_window()
 
-    driver.maximize_window()
+    driver.implicitly_wait(5)
     driver.get("https://stellarburgers.education-services.ru")
     yield driver
     driver.quit()
