@@ -31,3 +31,7 @@ Diplom_3/
 ├── conftest.py                   # Фикстура для запуска браузеров (Chrome, Firefox)
 ├── requirements.txt              # Список зависимостей проекта (pytest, selenium, allure и др.)
 └── README.md                     # Описание проекта, инструкция по запуску
+
+## Дополнения
+- Исправлены тесты для Firefox
+- Добавлены тестовые классы и шаги Allure
