@@ -118,13 +118,3 @@ Stellar-Burgers-UI-E2E-Tests/
 ```
 
 In CI/CD (GitHub Actions) the report can be automatically published to GitHub Pages. 
-
-
-
-
-
-
-
-## Дополнения
-- Исправлены тесты для Firefox
-- Добавлены тестовые классы и шаги Allure
